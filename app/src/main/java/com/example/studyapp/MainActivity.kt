@@ -13,13 +13,14 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import com.example.studyapp.ui.theme.StudyappTheme
 import androidx.compose.material3.Surface
-import com.example.studyapp.ui.coroutineScreen.CoroutineLearningScreen
-import com.example.studyapp.ui.coroutineScreen.CoroutineViewModel
- 
+import com.example.studyapp.ui.navigation.AppNavHost
+import com.example.studyapp.ui.screens.coroutineScreen.CoroutineScreen
+import com.example.studyapp.ui.screens.coroutineScreen.CoroutineViewModel
+
 
 class MainActivity : ComponentActivity() {
     //    lateinit var coroutineViewModel: CoroutineViewModel 2nd way
-    val viewModel: CoroutineViewModel by viewModels()
+//    val viewModel: CoroutineViewModel by viewModels()
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,11 +32,14 @@ class MainActivity : ComponentActivity() {
             StudyappTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
 
+
                     Surface(
                         modifier = Modifier
                             .padding(innerPadding)
                     ) {
-                        CoroutineLearningScreen(viewModel = viewModel, modifier = Modifier)
+
+                        AppNavHost()
+//                        CoroutineScreen(viewModel = viewModel, modifier = Modifier)
                     }
                 }
             }

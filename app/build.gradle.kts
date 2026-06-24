@@ -2,12 +2,14 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.jetbrains.kotlin.serialization)
+
 }
 
 android {
     namespace = "com.example.studyapp"
     compileSdk {
-        version = release(36)
+        version = release(37)
     }
 
     defaultConfig {
@@ -60,6 +62,13 @@ dependencies {
     implementation(libs.okhttp3.logging.interceptor)
     implementation(libs.gson)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.navigation3.ui)
+    implementation(libs.androidx.navigation3.runtime)
+    implementation(libs.androidx.lifecycle.viewmodel.navigation3)
+    implementation(libs.androidx.material3.adaptive.navigation3)
+    implementation(libs.kotlinx.serialization.core)
+    implementation(libs.androidx.tracing.ktx)
+    implementation(libs.androidx.compose.runtime.tracing)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
