@@ -26,3 +26,6 @@ object FlowKey : NavKey
 
 @Serializable
 object AnimationKey : NavKey
+
+@Serializable
+object AnimationTwoKey : NavKey

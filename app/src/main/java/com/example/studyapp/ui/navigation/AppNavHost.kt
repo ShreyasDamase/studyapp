@@ -12,6 +12,7 @@ import com.example.studyapp.ui.screens.channel.ChannelScreen
 import com.example.studyapp.ui.screens.channel.ChannelViewModel
 import com.example.studyapp.ui.screens.coroutineScreen.CoroutineScreen
 import com.example.studyapp.ui.screens.animation.AnimationScreen
+import com.example.studyapp.ui.screens.animation.AnimationScreenTwo
 import com.example.studyapp.ui.screens.animation.AnimationViewModel
 import com.example.studyapp.ui.screens.coroutineScreen.CoroutineViewModel
 import com.example.studyapp.ui.screens.flow.FlowScreen
@@ -47,7 +48,8 @@ fun AppNavHost() {
                     onStateFlowPress = { backStack.add(StateFlowKey) },
                     onSharedFlowPress = { backStack.add(SharedFlowKey) },
                     onFlowPress = { backStack.add(FlowKey) },
-                    onAnimationPress = { backStack.add(AnimationKey) }
+                    onAnimationPress = { backStack.add(AnimationKey) },
+                    onAnimationTwoPress = { backStack.add(AnimationTwoKey) }
 
                 )
             }
@@ -89,6 +91,12 @@ fun AppNavHost() {
                 AnimationScreen(
                     viewModel = animationViewModel,
                     onBackPress = { backStack.remove(AnimationKey) }
+                )
+            }
+            entry<AnimationTwoKey> {
+                AnimationScreenTwo(
+                    viewModel = animationViewModel,
+                    onBackPress = { backStack.remove(AnimationTwoKey) }
                 )
             }
 

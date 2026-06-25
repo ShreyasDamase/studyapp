@@ -17,6 +17,7 @@ sealed interface NavigationEvent {
     data object NavigateToSharedFlowScreen : NavigationEvent
     data object NavigateToFlowScreen : NavigationEvent
     data object NavigateToAnimationScreen : NavigationEvent
+    data object NavigateToAnimationTwoScreen : NavigationEvent
 }
 
 class HomeViewModel() : ViewModel() {
@@ -47,6 +48,12 @@ class HomeViewModel() : ViewModel() {
     fun navigateToAnimationScreen() {
         viewModelScope.launch {
             _navigationEvent.emit(NavigationEvent.NavigateToAnimationScreen)
+        }
+    }
+
+    fun navigateToAnimationTwoScreen() {
+        viewModelScope.launch {
+            _navigationEvent.emit(NavigationEvent.NavigateToAnimationTwoScreen)
         }
     }
 

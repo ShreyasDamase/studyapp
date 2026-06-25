@@ -22,7 +22,8 @@ fun HomeScreen(
     onStateFlowPress: () -> Unit,
     onSharedFlowPress: () -> Unit,
     onFlowPress: () -> Unit,
-    onAnimationPress: () -> Unit
+    onAnimationPress: () -> Unit,
+    onAnimationTwoPress: () -> Unit
 ) {
     LaunchedEffect(Unit) {
         homeViewModel.navigationEvent.collect {
@@ -37,6 +38,10 @@ fun HomeScreen(
 
                 NavigationEvent.NavigateToAnimationScreen -> {
                     onAnimationPress()
+                }
+
+                NavigationEvent.NavigateToAnimationTwoScreen -> {
+                    onAnimationTwoPress()
                 }
             }
         }
@@ -81,6 +86,11 @@ fun HomeScreen(
                 modifier = Modifier.fillMaxWidth(0.7f),
                 onClick = { homeViewModel.navigateToAnimationScreen() }
             ) { Text("On Animation Press") }
+
+            Button(
+                modifier = Modifier.fillMaxWidth(0.7f),
+                onClick = { homeViewModel.navigateToAnimationTwoScreen() }
+            ) { Text("On Animation Two Press") }
         }
     }
 }
