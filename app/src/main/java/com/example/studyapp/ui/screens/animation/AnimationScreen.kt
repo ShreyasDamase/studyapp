@@ -107,6 +107,9 @@ fun FallingLeaf(screenHeight: Float, startX: Float) {
     // Randomize starting Y (not always mid-screen)
     val startY = remember { Random.nextFloat() * (screenHeight * 0.3f) }
 
+
+    //Random mirror this will mirror leaf randomly to look more natural
+    val mirrorRandom = remember { if (Random.nextBoolean()) 1f else -1f }
     val fallY by infiniteTransition.animateFloat(
         initialValue = startY,
         targetValue = screenHeight + 100,
@@ -145,6 +148,7 @@ fun FallingLeaf(screenHeight: Float, startX: Float) {
                 translationY = fallY
                 translationX = startX + driftX
                 rotationZ = rotation
+                scaleX = mirrorRandom
             }
     )
 }
